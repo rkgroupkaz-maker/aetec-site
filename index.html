@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ТОО «АЕТЕС» — арматура для СИП, зажимы, кабель</title>
+<meta name="description" content="ТОО «АЕТЕС»: анкерные и поддерживающие зажимы, спиральные вязки, СИП, кабель и линейная арматура для ВЛ. Поставки по всему Казахстану.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1620; --ink-2:#16222f; --ink-3:#22313f;
+  --paper:#f4f6f8; --white:#fff; --line:#dfe4ea;
+  --muted:#5d6b79; --amber:#ffb81c; --amber-d:#e59f00; --blue:#1d5fd1;
+  --ok:#16a34a; --r:14px;
+  --shadow:0 10px 30px -12px rgba(13,22,32,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:Unbounded,Manrope,sans-serif;letter-spacing:-.01em;line-height:1.15}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:700;transition:.18s;white-space:nowrap}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-d);transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--ink-3)}
+.btn-line{border:1.5px solid var(--line);background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* top bar */
+.topbar{background:var(--ink);color:#b9c4cf;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+.topbar span{display:inline-flex;align-items:center;gap:6px;margin-right:18px}
+
+header.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Unbounded;font-weight:700;font-size:20px}
+.logo-mark{width:38px;height:38px;border-radius:10px;background:var(--ink);display:grid;place-items:center}
+.logo small{display:block;font-family:Manrope;font-weight:600;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.menu{display:flex;gap:24px;font-weight:600;font-size:15px;margin-left:auto}
+.menu a{color:var(--muted)}
+.menu a:hover{color:var(--ink)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:var(--ink);color:#fff;font-weight:700}
+.cart-btn .count{min-width:22px;height:22px;border-radius:11px;background:var(--amber);color:var(--ink);font-size:12px;display:grid;place-items:center;padding:0 6px}
+.burger{display:none}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 85% 20%,rgba(29,95,209,.35),transparent 60%),
+  radial-gradient(500px 300px at 10% 110%,rgba(255,184,28,.18),transparent 60%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:80px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--amber)}
+.hero h1{font-size:clamp(32px,4.6vw,54px);margin:18px 0 20px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p.lead{font-size:18px;color:#c3cdd7;max-width:540px}
+.hero .ctas{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap}
+.hero-stats b{display:block;font-family:Unbounded;font-size:26px;color:#fff}
+.hero-stats span{font-size:13px;color:#93a2b1}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:460px;justify-self:end;width:100%}
+.hero-art svg{width:100%;height:100%}
+
+/* sections */
+section{padding:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(26px,3vw,38px);margin-top:10px}
+.sec-head p{color:var(--muted);max-width:460px}
+.eyebrow.dark{color:var(--blue)}
+.eyebrow.dark::before{background:var(--blue)}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 16px;text-align:left;transition:.18s}
+.cat:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:var(--shadow)}
+.cat .ic{width:46px;height:46px;border-radius:12px;background:var(--paper);display:grid;place-items:center;margin-bottom:14px}
+.cat b{display:block;font-size:15px;line-height:1.3}
+.cat small{color:var(--muted);font-size:13px}
+
+/* catalog */
+#catalog{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.chip{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:14px;background:#fff;transition:.15s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.search{position:relative;min-width:260px}
+.search input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper)}
+.search input:focus{outline:none;border-color:var(--blue);background:#fff}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:var(--r);background:#fff;display:flex;flex-direction:column;overflow:hidden;transition:.18s}
+.card:hover{box-shadow:var(--shadow);border-color:#c9d1da}
+.card .pic{aspect-ratio:16/10;background:linear-gradient(160deg,#eef2f6,#e2e8ef);display:grid;place-items:center;position:relative}
+.card .pic svg{width:58%;height:auto}
+.card .tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;padding:4px 9px;border-radius:6px;color:var(--muted)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:Manrope;font-size:17px;font-weight:800;letter-spacing:0}
+.card .desc{color:var(--muted);font-size:14px;margin:6px 0 12px}
+.specs{list-style:none;font-size:13px;margin-bottom:14px;display:grid;gap:4px}
+.specs li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:4px}
+.specs li span:first-child{color:var(--muted)}
+.specs li span:last-child{font-weight:600;text-align:right}
+.buy{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-weight:800;font-size:17px}
+.price small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:9px;overflow:hidden}
+.qty button{width:32px;height:36px;font-size:18px;font-weight:700;color:var(--muted)}
+.qty button:hover{background:var(--paper);color:var(--ink)}
+.qty input{width:52px;height:36px;text-align:center;border:0;font-weight:700;-moz-appearance:textfield}
+.qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.add{margin-top:12px;width:100%}
+.add.done{background:var(--ok);color:#fff}
+.empty{text-align:center;color:var(--muted);padding:50px 0;grid-column:1/-1}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why .it{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px}
+.why .num{font-family:Unbounded;font-size:13px;color:var(--blue);margin-bottom:16px}
+.why h3{font-family:Manrope;font-weight:800;font-size:18px;margin-bottom:8px;letter-spacing:0}
+.why p{color:var(--muted);font-size:14.5px}
+
+/* steps */
+.steps-sec{background:var(--ink);color:#fff}
+.steps-sec .sec-head p{color:#9fb0c0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding:26px 24px 10px 0;border-top:2px solid var(--ink-3);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:Unbounded;color:var(--amber);font-size:14px;display:block;margin-bottom:14px}
+.step::after{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:var(--amber)}
+.step h3{font-family:Manrope;font-weight:800;font-size:18px;margin-bottom:6px;letter-spacing:0}
+.step p{color:#9fb0c0;font-size:14.5px}
+
+/* request */
+.req{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.req-info h2{font-size:clamp(26px,3vw,36px);margin:10px 0 16px}
+.req-info p{color:var(--muted);margin-bottom:24px}
+.contact-list{display:grid;gap:14px}
+.contact-list a,.contact-list div{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.contact-list .ci{width:40px;height:40px;border-radius:10px;background:var(--paper);display:grid;place-items:center;flex-shrink:0}
+.contact-list small{display:block;color:var(--muted);font-size:12px}
+.contact-list b{font-size:15px}
+.form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+.form h3{font-family:Manrope;font-weight:800;font-size:20px;letter-spacing:0;margin-bottom:4px}
+.form .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;font-weight:700}
+.field label i{color:#d93025;font-style:normal}
+.field input,.field select,.field textarea{padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);transition:.15s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:#fff}
+.field.err input{border-color:#d93025;background:#fff5f5}
+.field textarea{min-height:96px;resize:vertical}
+.consent{font-size:12.5px;color:var(--muted);margin:4px 0 16px}
+.form .btn{width:100%}
+
+footer{background:var(--ink);color:#93a2b1;padding:54px 0 28px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px}
+.foot h4{color:#fff;font-size:14px;margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot a:hover{color:#fff}
+.foot .logo{color:#fff;margin-bottom:14px}
+.foot .logo small{color:#93a2b1}
+.copy{border-top:1px solid var(--ink-3);padding-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+
+/* drawer */
+.overlay{position:fixed;inset:0;background:rgba(13,22,32,.5);opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:#fff;z-index:70;transform:translateX(100%);transition:.3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-family:Manrope;font-weight:800;font-size:20px;letter-spacing:0}
+.x{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--paper)}
+.x:hover{background:var(--line)}
+.dr-body{flex:1;overflow:auto;padding:10px 22px}
+.ci-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.ci-row .thumb{width:56px;height:56px;border-radius:10px;background:var(--paper);display:grid;place-items:center}
+.ci-row .thumb svg{width:70%}
+.ci-row b{font-size:14.5px;display:block;line-height:1.3}
+.ci-row small{color:var(--muted);font-size:12.5px}
+.ci-row .right{display:flex;flex-direction:column;align-items:end;gap:6px}
+.rm{font-size:12px;color:#d93025;font-weight:600}
+.dr-foot{padding:18px 22px;border-top:1px solid var(--line);background:var(--paper)}
+.tot{display:flex;justify-content:space-between;margin-bottom:6px;font-size:15px}
+.tot b{font-size:18px}
+.note{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.dr-empty{text-align:center;padding:60px 10px;color:var(--muted)}
+.dr-empty svg{margin-bottom:14px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;pointer-events:none;opacity:0;transition:.2s}
+.modal.on{opacity:1;pointer-events:auto}
+.modal .box{background:#fff;border-radius:18px;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:30px;transform:translateY(12px);transition:.25s;box-shadow:0 30px 80px -20px rgba(0,0,0,.4)}
+.modal.on .box{transform:none}
+.ok-ic{width:58px;height:58px;border-radius:50%;background:#e8f7ee;display:grid;place-items:center;margin-bottom:16px}
+.modal h3{font-family:Manrope;font-weight:800;font-size:22px;letter-spacing:0;margin-bottom:6px}
+.modal p{color:var(--muted);margin-bottom:16px}
+.modal pre{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;white-space:pre-wrap;max-height:220px;overflow:auto;margin-bottom:16px}
+.modal .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal .acts .wide{grid-column:1/-1}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,40px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;font-size:14px;opacity:0;transition:.25s;z-index:90;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:1024px){
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .why,.steps{grid-template-columns:repeat(2,1fr)}
+  .steps{gap:0 24px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .hero .wrap,.req{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .menu{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 20px;border-bottom:1px solid var(--line);gap:14px}
+  .menu.open{display:flex}
+  .burger{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:var(--paper);margin-left:auto}
+  .nav .wrap{gap:12px}
+  .cart-btn .lbl{display:none}
+  section{padding:60px 0}
+}
+@media (max-width:560px){
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .why,.steps,.row,.foot{grid-template-columns:1fr}
+  .topbar .hide-sm{display:none}
+  .search{min-width:100%}
+  .form{padding:22px}
+  .modal .acts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div>
+      <span>📍 Казахстан · доставка по всем регионам</span>
+      <span class="hide-sm">🕘 Пн–Пт 9:00–18:00</span>
+    </div>
+    <div>
+      <a href="tel:+77000000000" class="js-phone-link"><span class="js-phone">+7 (700) 000-00-00</span></a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="#ffb81c"/></svg>
+      </span>
+      <span>АЕТЕС<small>ТОО · АРМАТУРА ДЛЯ ВЛ</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О компании</a>
+      <a href="#how">Как заказать</a>
+      <a href="#request">Контакты</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="cart-btn" id="openCart" aria-label="Корзина">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+      <span class="lbl">Заявка</span>
+      <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Линейная арматура и кабель</span>
+      <h1>Всё для монтажа <em>воздушных линий</em> 0,4–10 кВ</h1>
+      <p class="lead">ТОО «АЕТЕС» поставляет анкерные и поддерживающие зажимы, спиральные вязки, провод СИП и кабель для энергетических компаний, подрядчиков и госзаказчиков Казахстана.</p>
+      <div class="ctas">
+        <a href="#catalog" class="btn btn-amber">Открыть каталог
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#request" class="btn btn-ghost">Получить коммерческое предложение</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>6</b><span>групп продукции</span></div>
+        <div><b>24 ч</b><span>на ответ с КП</span></div>
+        <div><b>РК</b><span>доставка по всем областям</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3a4b"/><stop offset="1" stop-color="#16222f"/></linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="190" fill="url(#g1)" stroke="#2c3e51"/>
+        <!-- pole -->
+        <rect x="190" y="70" width="20" height="300" rx="3" fill="#4b5d70"/>
+        <rect x="110" y="110" width="180" height="12" rx="3" fill="#5c7086"/>
+        <!-- wires -->
+        <path d="M10 150 Q 110 185 150 130" stroke="#1b1b1b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M250 130 Q 300 185 392 150" stroke="#1b1b1b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M10 245 Q 110 290 190 235" stroke="#1b1b1b" stroke-width="9" stroke-linecap="round"/>
+        <path d="M210 235 Q 300 290 392 245" stroke="#1b1b1b" stroke-width="9" stroke-linecap="round"/>
+        <!-- anchor clamp -->
+        <g transform="translate(140 118)">
+          <path d="M0 12 L22 2 L30 22 L8 30Z" fill="#9aa9b8"/>
+          <path d="M22 4 Q34 -6 46 4" stroke="#ffb81c" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(232 118)">
+          <path d="M28 12 L6 2 L-2 22 L20 30Z" fill="#9aa9b8"/>
+        </g>
+        <!-- bracket + support clamp -->
+        <rect x="178" y="222" width="44" height="18" rx="4" fill="#ffb81c"/>
+        <circle cx="200" cy="231" r="5" fill="#16222f"/>
+        <!-- spiral ties -->
+        <g stroke="#c9d3dd" stroke-width="3" fill="none">
+          <path d="M70 255 c6 -12 12 12 18 0 s12 12 18 0 s12 12 18 0"/>
+          <path d="M280 255 c6 -12 12 12 18 0 s12 12 18 0 s12 12 18 0"/>
+        </g>
+        <!-- bolt spark -->
+        <circle cx="318" cy="88" r="34" fill="#ffb81c" opacity=".12"/>
+        <path d="M322 64 302 92h13l-3 22 20-30h-13z" fill="#ffb81c"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow dark">Направления</span><h2>Продукция</h2></div>
+      <p>Выберите группу товаров — каталог отфильтруется автоматически.</p>
+    </div>
+    <div class="cats" id="cats"></div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow dark">Каталог</span><h2>Выберите товары для заявки</h2></div>
+      <p>Укажите количество и добавьте позиции в заявку. Менеджер подтвердит наличие, цену и сроки поставки.</p>
+    </div>
+    <div class="toolbar">
+      <div class="chips" id="chips"></div>
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5d6b79" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Поиск: PA 1500, СИП-2, ВС…">
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow dark">Почему АЕТЕС</span><h2>Надёжный поставщик для энергетики</h2></div>
+      <p>Работаем с сетевыми компаниями, монтажными организациями и участниками государственных закупок.</p>
+    </div>
+    <div class="why">
+      <div class="it"><div class="num">01</div><h3>Сертифицированная продукция</h3><p>Арматура и кабель соответствуют ГОСТ и требованиям ТР ТС. Документы — по запросу.</p></div>
+      <div class="it"><div class="num">02</div><h3>Работа с тендерами</h3><p>Готовим коммерческие предложения и пакеты документов для закупок на goszakup.gov.kz и zakup.sk.kz.</p></div>
+      <div class="it"><div class="num">03</div><h3>Комплектация объекта</h3><p>Подберём полный комплект арматуры под марку и сечение провода — от анкерного зажима до бандажной ленты.</p></div>
+      <div class="it"><div class="num">04</div><h3>Доставка по Казахстану</h3><p>Отгрузка со склада и доставка транспортными компаниями во все областные центры и районы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Как заказать</span><h2>Четыре простых шага</h2></div>
+      <p>Без регистрации и личного кабинета — достаточно отправить заявку.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Выберите товары</h3><p>Добавьте нужные позиции из каталога и укажите количество.</p></div>
+      <div class="step"><h3>Отправьте заявку</h3><p>Заполните контакты и реквизиты компании — это займёт минуту.</p></div>
+      <div class="step"><h3>Получите КП</h3><p>Менеджер пришлёт цены, наличие и сроки в течение рабочего дня.</p></div>
+      <div class="step"><h3>Оплата и отгрузка</h3><p>Счёт на оплату, договор, отгрузка и закрывающие документы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="request">
+  <div class="wrap req">
+    <div class="req-info">
+      <span class="eyebrow dark">Заявка</span>
+      <h2>Нужна консультация или расчёт?</h2>
+      <p>Оставьте заявку — подберём арматуру под ваш проект и подготовим коммерческое предложение. Можно приложить спецификацию в комментарии.</p>
+      <div class="contact-list">
+        <a href="tel:+77000000000" class="js-phone-link"><span class="ci">📞</span><span><small>Телефон / WhatsApp</small><b class="js-phone">+7 (700) 000-00-00</b></span></a>
+        <a href="mailto:info@aetec.kz" class="js-mail-link"><span class="ci">✉️</span><span><small>Электронная почта</small><b class="js-mail">info@aetec.kz</b></span></a>
+        <div><span class="ci">📍</span><span><small>Адрес</small><b class="js-addr">г. Астана, ул. Примерная, 1</b></span></div>
+      </div>
+    </div>
+    <form class="form" id="reqForm" novalidate>
+      <h3>Оформить заявку</h3>
+      <p class="sub" id="formSub">Товары из корзины будут добавлены автоматически.</p>
+      <div class="row">
+        <div class="field"><label>Имя <i>*</i></label><input name="name" required placeholder="Как к вам обращаться"></div>
+        <div class="field"><label>Телефон <i>*</i></label><input name="phone" required type="tel" placeholder="+7 (___) ___-__-__"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Компания</label><input name="company" placeholder="ТОО / ИП"></div>
+        <div class="field"><label>БИН / ИИН</label><input name="bin" inputmode="numeric" maxlength="12" placeholder="12 цифр"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>E-mail</label><input name="email" type="email" placeholder="mail@company.kz"></div>
+        <div class="field"><label>Город доставки</label>
+          <select name="city">
+            <option>Астана</option><option>Алматы</option><option>Шымкент</option><option>Караганда</option><option>Актобе</option><option>Атырау</option><option>Актау</option><option>Павлодар</option><option>Усть-Каменогорск</option><option>Семей</option><option>Костанай</option><option>Кокшетау</option><option>Петропавловск</option><option>Уральск</option><option>Тараз</option><option>Кызылорда</option><option>Талдыкорган</option><option>Туркестан</option><option>Другой</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Комментарий</label><textarea name="comment" placeholder="Объект, сроки, марка провода, особые требования…"></textarea></div>
+      <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+      <button class="btn btn-amber" type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo"><span class="logo-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="#ffb81c"/></svg></span><span>АЕТЕС<small>ТОО · АРМАТУРА ДЛЯ ВЛ</small></span></div>
+        <p>Линейная арматура, провод СИП и кабельная продукция для электросетевого строительства в Казахстане.</p>
+      </div>
+      <div><h4>Каталог</h4><ul id="footCats"></ul></div>
+      <div><h4>Компания</h4><ul><li><a href="#about">О компании</a></li><li><a href="#how">Как заказать</a></li><li><a href="#request">Оставить заявку</a></li></ul></div>
+      <div><h4>Контакты</h4><ul><li class="js-phone">+7 (700) 000-00-00</li><li class="js-mail">info@aetec.kz</li><li class="js-addr">г. Астана, ул. Примерная, 1</li></ul></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> ТОО «АЕТЕС». Все права защищены.</span><span>БИН: 000000000000</span></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Заявка">
+  <div class="dr-head"><h3>Ваша заявка</h3><button class="x" id="closeCart" aria-label="Закрыть"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="dr-body" id="drBody"></div>
+  <div class="dr-foot" id="drFoot">
+    <div class="tot"><span>Позиций:</span><b id="totItems">0</b></div>
+    <div class="tot"><span>Сумма:</span><b id="totSum">—</b></div>
+    <p class="note">Итоговая стоимость и наличие подтверждаются менеджером в коммерческом предложении.</p>
+    <button class="btn btn-amber" style="width:100%" id="toForm">Оформить заявку</button>
+  </div>
+</aside>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <div class="ok-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></div>
+    <h3>Заявка <span id="reqNo"></span> сформирована</h3>
+    <p>Отправьте её нам удобным способом — менеджер свяжется с вами в течение рабочего дня.</p>
+    <pre id="reqText"></pre>
+    <div class="acts">
+      <a class="btn btn-amber wide" id="waBtn" href="#" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+      <a class="btn btn-dark" id="mailBtn" href="#">Отправить на e-mail</a>
+      <button class="btn btn-line" id="copyBtn" type="button">Скопировать текст</button>
+      <button class="btn btn-line wide" id="closeModal" type="button">Закрыть</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ НАСТРОЙКИ КОМПАНИИ — замените на свои ============ */
+const COMPANY = {
+  name: 'ТОО «АЕТЕС»',
+  phone: '+7 (700) 000-00-00',
+  whatsapp: '77000000000',          // номер для WhatsApp, только цифры
+  email: 'info@aetec.kz',
+  address: 'г. Астана, ул. Примерная, 1'
+};
+
+/* ============ КАТЕГОРИИ ============ */
+const CATS = [
+  {id:'anchor',  name:'Анкерные зажимы',     hint:'для СИП и ВЛИ'},
+  {id:'support', name:'Поддерживающие и ответвительные', hint:'зажимы'},
+  {id:'spiral',  name:'Спиральные вязки',    hint:'для проводов АС'},
+  {id:'sip',     name:'Провод СИП',          hint:'СИП-2, СИП-4'},
+  {id:'cable',   name:'Кабель',              hint:'силовой и контрольный'},
+  {id:'fitting', name:'Арматура и крепёж',   hint:'кронштейны, лента'}
+];
+
+/* ============ ТОВАРЫ ============
+   price: цена за единицу в тенге. Если null — показывается «Цена по запросу».
+   Добавляйте, удаляйте и редактируйте позиции здесь. */
+const PRODUCTS = [
+  {id:'pa1500', cat:'anchor', name:'Анкерный зажим PA 1500', desc:'Анкеровка СИП с изолированной несущей нейтралью на опорах ВЛИ 0,4 кВ.', specs:{'Сечение':'25–35 мм²','Материал':'алюминий / полимер'}, unit:'шт', price:null},
+  {id:'pa2000', cat:'anchor', name:'Анкерный зажим PA 2000', desc:'Анкеровка СИП с несущей нейтралью большего сечения.', specs:{'Сечение':'50–70 мм²','Материал':'алюминий / полимер'}, unit:'шт', price:null},
+  {id:'pa25',   cat:'anchor', name:'Анкерный зажим PA 25×100', desc:'Для крепления самонесущих изолированных проводов без несущей нейтрали.', specs:{'Сечение':'2×16 – 4×25 мм²','Применение':'ответвления к вводам'}, unit:'шт', price:null},
+  {id:'zab',    cat:'anchor', name:'Зажим анкерный клиновой', desc:'Клиновой анкерный зажим для неизолированных и защищённых проводов ВЛ.', specs:{'Сечение':'по запросу','Материал':'алюминиевый сплав'}, unit:'шт', price:null},
+
+  {id:'es1500', cat:'support', name:'Поддерживающий зажим ES 1500', desc:'Подвеска СИП на промежуточных опорах.', specs:{'Сечение нейтрали':'25–95 мм²','Корпус':'атмосферостойкий полимер'}, unit:'шт', price:null},
+  {id:'p616',   cat:'support', name:'Прокалывающий зажим P 616', desc:'Ответвление от магистрали СИП без снятия изоляции.', specs:{'Магистраль':'16–95 мм²','Ответвление':'2,5–35 мм²'}, unit:'шт', price:null},
+  {id:'p645',   cat:'support', name:'Прокалывающий зажим P 645', desc:'Ответвительный зажим для больших сечений.', specs:{'Магистраль':'35–95 мм²','Ответвление':'35–95 мм²'}, unit:'шт', price:null},
+
+  {id:'vs70',   cat:'spiral', name:'Вязка спиральная ВС-70', desc:'Крепление провода к штыревому изолятору без применения проволоки.', specs:{'Провод':'АС 70','Тип':'одинарная'}, unit:'шт', price:null},
+  {id:'vs95',   cat:'spiral', name:'Вязка спиральная ВС-95', desc:'Крепление провода к штыревому изолятору.', specs:{'Провод':'АС 95','Тип':'одинарная'}, unit:'шт', price:null},
+  {id:'vs120',  cat:'spiral', name:'Вязка спиральная ВС-120', desc:'Крепление провода к штыревому изолятору.', specs:{'Провод':'АС 120','Тип':'одинарная'}, unit:'шт', price:null},
+  {id:'vsd',    cat:'spiral', name:'Вязка спиральная двойная', desc:'Двойное крепление на угловых и ответственных опорах.', specs:{'Провод':'АС 35–120','Тип':'двойная'}, unit:'шт', price:null},
+
+  {id:'sip2-35', cat:'sip', name:'СИП-2 3×35+1×54,6', desc:'Самонесущий изолированный провод с несущей нейтралью.', specs:{'Напряжение':'0,6/1 кВ','Изоляция':'светостаб. СПЭ'}, unit:'м', price:null},
+  {id:'sip2-50', cat:'sip', name:'СИП-2 3×50+1×54,6', desc:'Магистральные линии ВЛИ 0,4 кВ.', specs:{'Напряжение':'0,6/1 кВ','Изоляция':'светостаб. СПЭ'}, unit:'м', price:null},
+  {id:'sip2-70', cat:'sip', name:'СИП-2 3×70+1×54,6', desc:'Магистральные линии ВЛИ 0,4 кВ повышенной нагрузки.', specs:{'Напряжение':'0,6/1 кВ','Изоляция':'светостаб. СПЭ'}, unit:'м', price:null},
+  {id:'sip4-16', cat:'sip', name:'СИП-4 2×16', desc:'Ответвления к вводам в здания.', specs:{'Напряжение':'0,6/1 кВ','Жилы':'2 × 16 мм²'}, unit:'м', price:null},
+  {id:'sip4-416',cat:'sip', name:'СИП-4 4×16', desc:'Трёхфазные ответвления к вводам.', specs:{'Напряжение':'0,6/1 кВ','Жилы':'4 × 16 мм²'}, unit:'м', price:null},
+
+  {id:'avbb',   cat:'cable', name:'Кабель АВБбШв 4×95', desc:'Силовой бронированный кабель для прокладки в земле.', specs:{'Напряжение':'1 кВ','Жилы':'алюминий'}, unit:'м', price:null},
+  {id:'vvg',    cat:'cable', name:'Кабель ВВГнг(А)-LS 3×2,5', desc:'Силовой кабель для внутренней проводки, не распространяет горение.', specs:{'Напряжение':'0,66 кВ','Жилы':'медь'}, unit:'м', price:null},
+  {id:'apvbb',  cat:'cable', name:'Кабель АПвБбШп 4×120', desc:'Силовой кабель с изоляцией из сшитого полиэтилена.', specs:{'Напряжение':'1 кВ','Жилы':'алюминий'}, unit:'м', price:null},
+
+  {id:'cs10',   cat:'fitting', name:'Кронштейн анкерный CS 10.3', desc:'Крепление анкерных зажимов на опорах и фасадах.', specs:{'Нагрузка':'до 10 кН','Материал':'оцинк. сталь'}, unit:'шт', price:null},
+  {id:'tape',   cat:'fitting', name:'Лента бандажная F 207', desc:'Крепление кронштейнов к опорам.', specs:{'Ширина':'20 мм','Материал':'нерж. сталь'}, unit:'м', price:null},
+  {id:'clip',   cat:'fitting', name:'Скрепа для бандажной ленты', desc:'Фиксация бандажной ленты на опоре.', specs:{'Под ленту':'20 мм','Материал':'нерж. сталь'}, unit:'шт', price:null}
+];
+
+/* ============ ИЛЛЮСТРАЦИИ ============ */
+const ART = {
+  anchor:`<svg viewBox="0 0 120 80" fill="none"><path d="M8 40h40" stroke="#1b1b1b" stroke-width="8" stroke-linecap="round"/><path d="M44 28 82 22 88 58 50 52Z" fill="#8c9bab"/><path d="M50 30 80 26 84 54 54 50Z" fill="#a9b6c3"/><path d="M84 40q18-22 28 0" stroke="#ffb81c" stroke-width="5" stroke-linecap="round"/><circle cx="112" cy="40" r="4" fill="#ffb81c"/></svg>`,
+  support:`<svg viewBox="0 0 120 80" fill="none"><rect x="54" y="6" width="12" height="24" rx="3" fill="#4b5d70"/><path d="M38 30h44l-6 22H44Z" fill="#22313f"/><path d="M8 48h104" stroke="#1b1b1b" stroke-width="8" stroke-linecap="round"/><circle cx="60" cy="40" r="4" fill="#ffb81c"/></svg>`,
+  spiral:`<svg viewBox="0 0 120 80" fill="none"><path d="M4 40h112" stroke="#6b7c8d" stroke-width="5"/><path d="M14 40c5-16 10 16 15 0s10 16 15 0 10 16 15 0 10 16 15 0 10 16 15 0 10 16 15 0" stroke="#c0cad4" stroke-width="5" stroke-linecap="round"/><path d="M14 40c5-16 10 16 15 0s10 16 15 0 10 16 15 0 10 16 15 0 10 16 15 0 10 16 15 0" stroke="#ffb81c" stroke-width="1.5" stroke-linecap="round" opacity=".8"/></svg>`,
+  sip:`<svg viewBox="0 0 120 80" fill="none"><circle cx="60" cy="40" r="30" fill="#1b1b1b"/><circle cx="48" cy="30" r="10" fill="#2e2e2e" stroke="#555"/><circle cx="72" cy="30" r="10" fill="#2e2e2e" stroke="#555"/><circle cx="48" cy="52" r="10" fill="#2e2e2e" stroke="#555"/><circle cx="72" cy="52" r="10" fill="#2e2e2e" stroke="#555"/><circle cx="48" cy="30" r="4" fill="#b8c2cc"/><circle cx="72" cy="30" r="4" fill="#b8c2cc"/><circle cx="48" cy="52" r="4" fill="#b8c2cc"/><circle cx="72" cy="52" r="5" fill="#ffb81c"/></svg>`,
+  cable:`<svg viewBox="0 0 120 80" fill="none"><path d="M6 40h56" stroke="#22313f" stroke-width="22" stroke-linecap="round"/><path d="M62 40h18" stroke="#4b5d70" stroke-width="18"/><path d="M80 32h30M80 40h34M80 48h30" stroke-width="6" stroke-linecap="round" stroke="#c0cad4"/><path d="M80 40h34" stroke="#ffb81c" stroke-width="6" stroke-linecap="round"/><path d="M110 32h4M110 48h4" stroke="#d18a3a" stroke-width="6" stroke-linecap="round"/></svg>`,
+  fitting:`<svg viewBox="0 0 120 80" fill="none"><rect x="14" y="10" width="14" height="60" rx="3" fill="#4b5d70"/><path d="M28 30h40l20 10-20 10H28Z" fill="#8c9bab"/><circle cx="78" cy="40" r="6" fill="#ffb81c"/><path d="M10 22h22M10 58h22" stroke="#c0cad4" stroke-width="4" stroke-linecap="round"/></svg>`
+};
+const ICON = {
+  anchor:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h7M10 8l8-1 1 10-8-1z"/><path d="M19 12h2"/></svg>',
+  support:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5M7 8h10l-1.5 5h-7z"/><path d="M3 15h18"/></svg>',
+  spiral:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2" stroke-linecap="round"><path d="M3 12c1.5-4 3 4 4.5 0s3 4 4.5 0 3 4 4.5 0 3 4 4.5 0"/></svg>',
+  sip:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="2"/><circle cx="15" cy="9.5" r="2"/><circle cx="9" cy="14.5" r="2"/><circle cx="15" cy="14.5" r="2"/></svg>',
+  cable:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2" stroke-linecap="round"><path d="M3 12h10"/><path d="M13 9h3v6h-3z"/><path d="M16 10h5M16 14h5"/></svg>',
+  fitting:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18M5 9h9l4 3-4 3H5"/></svg>'
+};
+
+/* ============ ЛОГИКА ============ */
+const $ = s => document.querySelector(s);
+const fmt = n => new Intl.NumberFormat('ru-RU').format(Math.round(n)) + ' ₸';
+const catName = id => CATS.find(c=>c.id===id)?.name || '';
+let filter = 'all', query = '';
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('aetec_cart')||'{}') || {}; } catch(e){ cart = {}; }
+const save = () => { try{ localStorage.setItem('aetec_cart', JSON.stringify(cart)); }catch(e){} };
+
+// контакты
+document.querySelectorAll('.js-phone').forEach(e=>e.textContent=COMPANY.phone);
+document.querySelectorAll('.js-mail').forEach(e=>e.textContent=COMPANY.email);
+document.querySelectorAll('.js-addr').forEach(e=>e.textContent=COMPANY.address);
+document.querySelectorAll('.js-phone-link').forEach(e=>e.href='tel:+'+COMPANY.whatsapp);
+document.querySelectorAll('.js-mail-link').forEach(e=>e.href='mailto:'+COMPANY.email);
+$('#yr').textContent = new Date().getFullYear();
+
+// категории
+$('#cats').innerHTML = CATS.map(c=>`
+  <button class="cat" data-cat="${c.id}">
+    <span class="ic">${ICON[c.id]}</span>
+    <b>${c.name}</b><small>${PRODUCTS.filter(p=>p.cat===c.id).length} позиций · ${c.hint}</small>
+  </button>`).join('');
+$('#footCats').innerHTML = CATS.map(c=>`<li><a href="#catalog" data-cat="${c.id}">${c.name}</a></li>`).join('');
+$('#chips').innerHTML = `<button class="chip on" data-f="all">Все</button>` + CATS.map(c=>`<button class="chip" data-f="${c.id}">${c.name}</button>`).join('');
+
+function setFilter(f){
+  filter = f;
+  document.querySelectorAll('.chip').forEach(ch=>ch.classList.toggle('on', ch.dataset.f===f));
+  renderGrid();
+}
+document.addEventListener('click', e=>{
+  const c = e.target.closest('[data-cat]');
+  if(c){ e.preventDefault(); setFilter(c.dataset.cat); $('#catalog').scrollIntoView({behavior:'smooth'}); }
+  const ch = e.target.closest('.chip'); if(ch) setFilter(ch.dataset.f);
+});
+$('#q').addEventListener('input', e=>{ query = e.target.value.trim().toLowerCase(); renderGrid(); });
+
+function renderGrid(){
+  const list = PRODUCTS.filter(p => (filter==='all'||p.cat===filter) &&
+    (!query || (p.name+' '+p.desc+' '+catName(p.cat)).toLowerCase().includes(query)));
+  $('#grid').innerHTML = list.length ? list.map(p=>`
+    <article class="card" data-id="${p.id}">
+      <div class="pic"><span class="tag">${catName(p.cat)}</span>${ART[p.cat]}</div>
+      <div class="body">
+        <h3>${p.name}</h3>
+        <p class="desc">${p.desc}</p>
+        <ul class="specs">${Object.entries(p.specs).map(([k,v])=>`<li><span>${k}</span><span>${v}</span></li>`).join('')}</ul>
+        <div class="buy">
+          <div class="price">${p.price ? fmt(p.price) : 'Цена по запросу'}<small>за 1 ${p.unit}</small></div>
+          <div class="qty">
+            <button type="button" data-step="-1" aria-label="Меньше">−</button>
+            <input type="number" min="1" value="${p.unit==='м'?100:10}" aria-label="Количество">
+            <button type="button" data-step="1" aria-label="Больше">+</button>
+          </div>
+        </div>
+        <button class="btn btn-dark add" type="button">${cart[p.id] ? 'В заявке: '+cart[p.id]+' '+p.unit+' · добавить ещё' : 'Добавить в заявку'}</button>
+      </div>
+    </article>`).join('') : `<div class="empty">Ничего не найдено. Попробуйте другой запрос или <a href="#request" style="color:var(--blue);font-weight:700">оставьте заявку</a> — подберём аналог.</div>`;
+}
+
+$('#grid').addEventListener('click', e=>{
+  const card = e.target.closest('.card'); if(!card) return;
+  const inp = card.querySelector('.qty input');
+  const p = PRODUCTS.find(x=>x.id===card.dataset.id);
+  const stepBtn = e.target.closest('[data-step]');
+  if(stepBtn){
+    const step = (p.unit==='м'?10:1) * +stepBtn.dataset.step;
+    inp.value = Math.max(1, (+inp.value||0) + step); return;
+  }
+  const add = e.target.closest('.add');
+  if(add){
+    const q = Math.max(1, parseInt(inp.value)||1);
+    cart[p.id] = (cart[p.id]||0) + q; save(); updateCart();
+    add.classList.add('done'); add.textContent = '✓ Добавлено';
+    toast(`${p.name} — ${q} ${p.unit} в заявке`);
+    setTimeout(()=>{ add.classList.remove('done'); add.textContent = 'В заявке: '+cart[p.id]+' '+p.unit+' · добавить ещё'; }, 1300);
+  }
+});
+
+function cartLines(){
+  return Object.entries(cart).map(([id,q])=>({p:PRODUCTS.find(x=>x.id===id), q})).filter(l=>l.p);
+}
+function updateCart(){
+  const lines = cartLines();
+  $('#cartCount').textContent = lines.length;
+  $('#totItems').textContent = lines.length;
+  const priced = lines.every(l=>l.p.price);
+  const sum = lines.reduce((s,l)=>s+(l.p.price||0)*l.q,0);
+  $('#totSum').textContent = !lines.length ? '—' : priced ? fmt(sum) : (sum ? 'от '+fmt(sum) : 'по запросу');
+  $('#formSub').textContent = lines.length ? `В заявку будет добавлено позиций: ${lines.length}.` : 'Корзина пуста — опишите потребность в комментарии или выберите товары в каталоге.';
+  $('#drFoot').style.display = lines.length ? '' : 'none';
+  $('#drBody').innerHTML = lines.length ? lines.map(({p,q})=>`
+    <div class="ci-row" data-id="${p.id}">
+      <div class="thumb">${ART[p.cat]}</div>
+      <div><b>${p.name}</b><small>${p.price ? fmt(p.price)+' / '+p.unit : 'Цена по запросу'}</small></div>
+      <div class="right">
+        <div class="qty"><button type="button" data-d="-1">−</button><input type="number" min="1" value="${q}"><button type="button" data-d="1">+</button></div>
+        <button class="rm" type="button">Удалить</button>
+      </div>
+    </div>`).join('') : `<div class="dr-empty"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#c0cad4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg><p>Заявка пока пуста.<br>Добавьте товары из каталога.</p><br><a href="#catalog" class="btn btn-dark" id="goCat">Перейти в каталог</a></div>`;
+  renderGrid();
+}
+$('#drBody').addEventListener('click', e=>{
+  const row = e.target.closest('.ci-row');
+  if(e.target.id==='goCat'){ closeCart(); return; }
+  if(!row) return;
+  const id = row.dataset.id, p = PRODUCTS.find(x=>x.id===id);
+  if(e.target.closest('.rm')){ delete cart[id]; save(); updateCart(); return; }
+  const d = e.target.closest('[data-d]');
+  if(d){ cart[id] = Math.max(1, cart[id] + (p.unit==='м'?10:1) * +d.dataset.d); save(); updateCart(); }
+});
+$('#drBody').addEventListener('change', e=>{
+  const row = e.target.closest('.ci-row'); if(!row || e.target.tagName!=='INPUT') return;
+  cart[row.dataset.id] = Math.max(1, parseInt(e.target.value)||1); save(); updateCart();
+});
+
+const openCart = ()=>{ $('#drawer').classList.add('on'); $('#overlay').classList.add('on'); };
+const closeCart = ()=>{ $('#drawer').classList.remove('on'); $('#overlay').classList.remove('on'); };
+$('#openCart').onclick = openCart; $('#closeCart').onclick = closeCart; $('#overlay').onclick = closeCart;
+$('#toForm').onclick = ()=>{ closeCart(); $('#request').scrollIntoView({behavior:'smooth'}); setTimeout(()=>$('#reqForm [name=name]').focus(), 600); };
+$('#burger').onclick = ()=> $('#menu').classList.toggle('open');
+$('#menu').addEventListener('click', e=>{ if(e.target.tagName==='A') $('#menu').classList.remove('open'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeCart(); $('#modal').classList.remove('on'); } });
+
+// отправка заявки
+$('#reqForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const f = e.target, data = Object.fromEntries(new FormData(f));
+  let ok = true;
+  ['name','phone'].forEach(n=>{
+    const field = f[n].closest('.field');
+    const bad = !data[n].trim() || (n==='phone' && data[n].replace(/\D/g,'').length < 10);
+    field.classList.toggle('err', bad); if(bad) ok = false;
+  });
+  if(!ok){ toast('Заполните имя и телефон'); return; }
+
+  const no = 'А-' + Date.now().toString().slice(-6);
+  const lines = cartLines();
+  let txt = `Заявка ${no} — ${COMPANY.name}\n\n`;
+  txt += `Имя: ${data.name}\nТелефон: ${data.phone}\n`;
+  if(data.company) txt += `Компания: ${data.company}\n`;
+  if(data.bin) txt += `БИН/ИИН: ${data.bin}\n`;
+  if(data.email) txt += `E-mail: ${data.email}\n`;
+  txt += `Город: ${data.city}\n`;
+  if(lines.length){
+    txt += `\nТовары:\n` + lines.map((l,i)=>`${i+1}. ${l.p.name} — ${l.q} ${l.p.unit}`).join('\n') + '\n';
+  }
+  if(data.comment) txt += `\nКомментарий: ${data.comment}\n`;
+
+  $('#reqNo').textContent = '№ ' + no;
+  $('#reqText').textContent = txt;
+  $('#waBtn').href = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(txt)}`;
+  $('#mailBtn').href = `mailto:${COMPANY.email}?subject=${encodeURIComponent('Заявка '+no)}&body=${encodeURIComponent(txt)}`;
+  $('#modal').classList.add('on');
+});
+$('#copyBtn').onclick = async ()=>{
+  try{ await navigator.clipboard.writeText($('#reqText').textContent); toast('Текст заявки скопирован'); }
+  catch(e){ toast('Выделите текст и скопируйте вручную'); }
+};
+$('#closeModal').onclick = ()=>{
+  $('#modal').classList.remove('on');
+};
+$('#modal').addEventListener('click', e=>{ if(e.target.id==='modal') $('#modal').classList.remove('on'); });
+$('#reqForm').addEventListener('input', e=>e.target.closest('.field')?.classList.remove('err'));
+
+let tt; function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),2200); }
+
+updateCart();
+</script>
+</body>
+</html>
